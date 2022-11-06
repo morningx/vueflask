@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>code detail </title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+  <link href="../static/code-detail-src/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/code-detail-src/css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="/">返回首页</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="../code-list">返回题目列表</a>
+					</li>
+					<li class="breadcrumb-item active">
+                    {{ result[0] }}
+					</li>
+				</ol>
+			</nav>
+			<div class="list-group">
+				 <a href="#" class="list-group-item list-group-item-action active">题目标题：</a>
+				<div class="list-group-item">
+                {{ result[0] | safe }}
+				</div>
+			</div>
+			<div class="list-group">
+				 <a href="#" class="list-group-item list-group-item-action active">样例数据：</a>
+				<div class="list-group-item">
+                {{ result[2] | safe }}
+				</div>
+				</div>
+
+        <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">解题思路：</a>
+        <div class="list-group-item">
+        {{ result[1] | safe }}
+        </div>
+        </div>
+
+        <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">代码解答：</a>
+        <div class="list-group-item">
+        {{ result[3] | safe }}
+        </div>
+        </div>
+
+        <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">运行结果：</a>
+        <div class="list-group-item">
+        {{ result[5] | safe }}
+        </div>
+        </div>
+
+		</div>
+	</div>
+</div>
+
+  <script src="../static/code-detail-src/js/jquery.min.js"></script>
+  <script src="../static/code-detail-src/js/bootstrap.min.js"></script>
+  <script src="../static/code-detail-src/js/scripts.js"></script>
+  </body>
+</html>

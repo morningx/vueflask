@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>code-list</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="../static/code-list-src/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/code-list-src/css/style.css" rel="stylesheet">
+
+  <script type="text/javascript">
+  function listToDetail(pageid){
+      console.log(pageid)
+      window.location.href='/code-detail-param/id='+pageid;
+  }
+  </script>
+
+  </head>
+  <body>
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="/">返回首页</a>
+					</li>
+					<li class="breadcrumb-item active">
+						题目列表
+					</li>
+				</ol>
+			</nav>
+			<h3 class="text-left text-muted">
+            题目列表
+			</h3>
+			<div class="progress">
+				<div class="progress-bar w-100 progress-bar-striped">
+				</div>
+			</div>
+			<table class="table table-hover">
+
+            <thead>
+            <tr class="table-warning" href="/">
+                {% for i in labels %}
+                <td>{{ i }}</td>
+                {% endfor %}
+                <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in content %}
+            <tr class="table-success">
+                {% for j in i %}
+            <td><a href = './code-detail-param/id={{ i[0] }}' >  {{ j }}</a></td>
+                {% endfor %}
+            <td>
+            <button id="btn" class="btn btn-primary" onclick="listToDetail({{ i[0] }})" style="padding: 0px; border: 0px solid #000000 text-align:right" align="right">查看详情</button>
+            <a class="btn btn-primary btn-large" href='./code-detail-param/id={{ i[0] }}'>详情</a>
+            </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+
+			</table>
+			<nav>
+				<ul class="pagination" >
+					<li class="page-item">
+						<a class="page-link" href="#">Previous</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">1</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">2</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">3</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">4</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">5</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">Next</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+
+  <script src="../static/code-list-src/js/jquery.min.js"></script>
+  <script src="../static/code-list-src/js/bootstrap.min.js"></script>
+  <script src=".,/static/code-list-src/js/scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<body>
+Compare Result :
+<style>
+table,table tr th, table tr td <br>{
+border:10px solid #ccc;
+}
+table{
+width: 500px;
+border-collapse: collapse;
+}
+</style>
+<table border="10xp ">
+{% for qa in result %}
+<tr>
+<td>{{ qa["name"] }}</td>
+<td>{{ qa["result"] }}</td>
+</tr>
+{% endfor %}
+</table>
+</body>

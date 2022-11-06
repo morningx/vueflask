@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- 此页面通过VCC进行搭建: https://vcc3.sahadev.tech/ -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page {{result}}</title>
+    <style stype="text/css">
+
+      .container {  }
+    </style>
+
+    <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/element-plus/2.1.0/theme-chalk/index.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container" style="min-height: 100%; padding-bottom: 100px;">
+        Hello，欢迎使用LCG，请往此区域拖拽组件
+        <div>{{showText}}</div>
+        <el-container>
+          <el-header>
+            Header
+            <el-page-header @back="goBack2" content="详情页面"></el-page-header>
+          </el-header>
+          <el-main>Main</el-main>
+        </el-container>
+        <el-form-item label="标题:" prop>
+          <el-input v-model="ruleForm.name"></el-input>
+        </el-form-item>
+        <el-form-item label="举例:" prop="desc">
+          <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+        </el-form-item>
+        <el-form-item label="思路:" prop="desc">
+          <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+        </el-form-item>
+        <el-form-item label="代码:" prop="desc">
+          <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+        </el-form-item>
+        <el-form-item label="打印:" prop="desc">
+          <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+        </el-form-item>
+      </div>
+    </div>
+  </body>
+  <!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.31/vue.global.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/element-plus/2.1.0/index.full.min.js"></script>
+  <script>
+
+      Vue.createApp({
+      props: [],
+      components: {},
+      data() {
+        return {
+          ruleForm: {
+            name: "",
+            region: "",
+            date1: "",
+            date2: "",
+            delivery: false,
+            type: [],
+            resource: "",
+            desc: "",
+          },
+          showText: "这里的值声明于预设JS代码",
+          showValue: "开启预览模式后,点击我显示预设逻辑",
+        }
+      },
+      watch: {},
+      computed: {},
+      beforeCreate() {},
+      created() {},
+      beforeMount() {},
+      mounted() {},
+      beforeUpdate() {},
+      updated() {},
+      destroyed() {},
+      methods: {
+        request() {},
+        goBack2() {},
+        hello() {
+          alert("来自预设逻辑代码的问候")
+        },
+      },
+      fillter: {},
+    }
+
+    )
+          .use(ElementPlus)
+          .mount("#app");
+  </script>
+</html>
