@@ -38,19 +38,19 @@ code-detail-param.html：实现查询数据库物理表题目详情页内容进�
   
 ### vueflask项目初始化步骤  
   
-pip install flask  
-pip install flask_jsglue  
-virtuanenv flask    
-cd flask  
-source bin/activate  
-cd ..  
-export FLASK_APP=index.py  
-flask run  
--------------------  
+1 pip install flask  
+2 pip install flask_jsglue  
+3 virtuanenv flask    
+4 cd flask  
+5 source bin/activate  
+6 cd ..  
+7 export FLASK_APP=index.py  
+8 flask run  
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 (flask) (base) helloxdeMacBook-Pro:Vue-flask-master hellox$ flask run  
 * Serving Flask app 'index.py'  
 * Debug mode: off    
 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.  
 * Running on http://127.0.0.1:5000  
 Press CTRL+C to quit  
--------------------     
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
