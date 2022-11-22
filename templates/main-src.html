@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>主页</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+
+  <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+  <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/china.js"></script>
+
+  <link href="../static/main-src/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/main-src/css/style.css" rel="stylesheet">
+  <link rel="import" href="../templates/histogram.html" id="HistogramChart1"/>
+  <link rel="import" href="../templates/index-part-page/stackbarpercent.html" id="147a3ed5284648649b14c51de26edfb2"/>
+  <link rel="import" href="../templates/index-part-page/wordcloud.html"/>
+  </head>
+<body style="height: 100%; margin: 0">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+        <div class="btn-group btn-group-lg" role="group" style='text-align: left;position:fixed; z-index:999; top:0;'>
+
+        <button class="btn btn-primary-outline radius" style="text-align: left;background-color:transparent;border-stype:none;" type="button">
+        <a href="/" ><h6><font color="light"  > 首页</font></h6></a>
+				</button>
+        <button class="btn btn-link" type="button">
+        <a href="/code-list" ><h6><font color="light"> 问答</font></h6></a>
+				</button>
+        <button class="btn btn-link" type="button">
+        <a href="/blogs" ><h6><font color="light"> 文章 </font></h6></a>
+				</button>
+			</div>
+
+<div class="">
+</br>
+</br>
+</div>
+
+<div class="progress">
+<div class="progress-bar w-100 progress-bar-striped progress-bar-animated" style="background-color:transparent;border-stype:none;">
+</div>
+</div>
+
+        <div class="">
+        </br>
+        </div>
+<!--
+<iframe marginwidth=0 marginheight=0 width="100%" height=450 src="echartsBar" frameborder="no" scrolling="no" ></iframe>
+-->
+
+<!--
+使用流式容器 .container-fluid作为全宽容器，横跨视口的整个宽度。
+https://www.bootstrap.cn/doc/read/112.html -->
+<div class="container-fluid p-1 my-1 bg-light">
+<div class="row" >
+<div class="col-lg-7">
+<iframe marginwidth=0 marginheight=0 width="100%" height=470 src="stackbarpercent" frameborder="no" scrolling="no" ></iframe>
+</div>
+<div class="col-lg-5">
+<iframe marginwidth=0 marginheight=0 width="100%" height=470 src="histogram" frameborder="yes" scrolling="no" ></iframe>
+</div>
+</div>
+</div>
+
+<div class="progress">
+<div class="progress-bar w-100 progress-bar-striped progress-bar-animated" style="background-color:transparent;border-stype:none;">
+</div>
+</div>
+
+<div class="">
+</br>
+</div>
+<div class="col-md-7">
+<iframe marginwidth=0 marginheight=0 width="100%" height=470 src="wordcloud" frameborder="yes" scrolling="no" ></iframe>
+</div>
+
+  <script src="../static/main-src/js/jquery.min.js"></script>
+  <script src="../static/main-src/js/bootstrap.min.js"></script>
+  <script src="../static/main-src/js/scripts.js"></script>
+  </body>
+</html>

@@ -3,13 +3,16 @@
 from flask import Flask, render_template, jsonify, url_for, request
 from flask_jsglue import JSGlue
 import random
+import requests
 from uuid import uuid1
+import json
 # flask+vue前后端分离项目，后端服务
 from random import *
 from flask_cors import CORS
 import urllib.request
 
 app = Flask(__name__)
+app.debug = True
 app.config['DEBUG']=True
 jsglue = JSGlue()
 jsglue.init_app(app)
@@ -20,17 +23,107 @@ user = "root"
 password = "123456789"
 db_name = "todo_list"
 
-# 让js文件中可以使用url_for方法
-results = []
-# chars = 'ABCDEFGHIJKLMNOPQRSTUVWSYZ'
-results.append({'name': '1 最大N个数与最小N个数的和', 'flag': 'true', 'url': 'http://127.0.0.1:5000/questionanswer'})
-"""
-results.append({'name': 'vue.js+flask+element-ui简易Demo', 'flag': 'true'})
-results.append({'name': '代码请戳github', 'flag': 'true', 'url': 'https://github.com/qianbin01/Vue-flask'})
-for i in range(3):
-    results.append({'name': random.choice(chars), 'index': str(uuid1())})
-"""
+@app.route('/')
+def index():
+    import data_get
+    global user,password,db_name
+    res = data_get.select_category(user=user,db=db_name,password=password)
+    # print(res[0])
+    # print(res[1],[i[1] for i in res[1]])
+    # print(res[2])
+    # ['回溯', '排序', '查找', '贪心']
+    # [('回溯', 1), ('排序', 1), ('查找', 1), ('贪心', 2)]
+    # ['中等', '困难', '简单']
 
+    return render_template('main-src.html',category=res[0],total=[i[1] for i in res[1]],level=res[2])
+
+@app.route('/wordcloud', methods=["GET"])
+def wordcloud():
+
+    # import ml
+    # resml = ml.jieba_example()
+    # print("resml",resml)
+    import data_get
+    word_cloud_data = data_get.worldCloudDataGet(user=user,db=db_name,password=password)
+    # print("word_cloud_data:::",type(word_cloud_data),word_cloud_data)
+    # word_cloud_data::: <class 'str'> (('样例1',), ('5</br>95&nbsp;88&nbsp;83&nbsp;64&nbsp;100</br>2</br>输出：342</br>说明：最大2个
+    import data_visual
+    data_visual.WorldCloud(word_cloud_data)
+    # hist = data_visual.Histogram() user=user,db=db_name,password=password
+    # print(hist) {'回溯': 4, '排序': 1, '查找': 4, '贪心': 4}
+    return render_template("index-part-page/wordcloud.html")
+
+@app.route('/blogs')
+def blogs_main():
+    res = "test blogs-main page message!"
+    return render_template("/blogs-content/blogs.html", result = res)
+
+@app.route("/stackbarpercent")
+def stackbarpercent():
+    import data_get
+    global user,password,db_name
+    res = data_get.select_stackbarpercent3(user=user,db=db_name,password=password)
+    # print("res-level:",res[0],"\n")
+    # res-level: ['简单', '中等', '困难']
+    # print("res-list_select:",res[1],"\n")
+    # res-level: [{'value': 0, 'percent': 0}, {'value': 1, 'percent': Decimal('0.5000')}, {'value': 1, 'percent': Decimal('0.5000')}]
+    import data_visual
+    #     return [level,res_level_select_value,res_level_sort_value,res_level_back_value,res_level_heart_value]
+    data_visual.stackBarPercent3(levelx=res[0],select=res[1],sort=res[2],back=res[3],heart=res[4])
+    # data_visual.stackBarPercent(levelx=res[0],list_simple=res[1],list_medium=res[2],list_hard=res[3])
+    return render_template("index-part-page/stackbarpercent.html")
+
+# scatter3d数据图生成
+@app.route("/echartsBar")
+def echartsBar():
+    import data_visual
+    data_visual.echartsBar()
+    return render_template("index-part-page/echartsBar.html")
+
+@app.route('/histogram', methods=["GET"])
+def histogram():
+    import data_visual
+    hist = data_visual.select_category(user=user,db=db_name,password=password)
+    # hist = data_visual.Histogram()
+    # print(hist) {'回溯': 4, '排序': 1, '查找': 4, '贪心': 4}
+    return render_template("histogram.html", Types=json.dumps(hist))
+
+# 实现代码题目从页面新增功能
+# https://blog.csdn.net/w2909526/article/details/107605670 使用flask实现提交表单至后台
+@app.route('/code-add-new',methods=['POST','GET'])
+def code_add_new():
+    if request.method == 'POST':
+        question=request.form.get('content_question')
+        example=request.form.get('content_example')
+        think=request.form.get('content_think')
+        code=request.form.get('content_code')
+        result=request.form.get('content_result')
+        print ("前端取数为：",question,example,think,code,result)
+        import data_get
+        global user,password,db_name
+        data_get.insertDataToDB(user=user,db=db_name,password=password,q=question,e=example,t=think,c=code,r=result)
+
+    return render_template('code-add-new.html')
+
+@app.route('/code-add',methods=['POST','GET'])
+def code_add():
+    if request.method == 'POST':
+        level=request.form.get('select_level')
+        category=request.form.get('select_category')
+        question=request.form.get('content_question')
+        example=request.form.get('content_example')
+        think=request.form.get('content_think')
+        code=request.form.get('content_code')
+        result=request.form.get('content_result')
+        print ("前端取下拉框数据为：",level,category)
+        print ("前端取数为：",question,example,think,code,result)
+        import data_get
+        global user,password,db_name
+        data_get.insertDataToDB(user=user,db=db_name,password=password,
+                                l = level,ca = category,
+                                q=question,e=example,t=think,co=code,r=result)
+
+    return render_template('code-add.html')
 
 # https://blog.csdn.net/weixin_36380516/article/details/80008496
 # 列表页不同参数id进入不同结果detail页面
@@ -54,9 +147,11 @@ def code_list():
     labels=resDbData[0]
     content=resDbData[1]
     content_id = [ i[0] for i in content]
-    # print("content_id:::",content_id)
+    content_level = [ i[1] for i in content]
+    content_category = [ i[2] for i in content]
+    print("labels,content_level:::",labels,content_level)
     # content_id::: [1, 2, 3]
-    return render_template('code-list.html', labels=labels, content=content,id=content_id)
+    return render_template('code-list.html', labels=labels, content=content,id=content_id,category=content_category,level=content_level)
 
 @app.route('/upload-code')
 def upload_code():
@@ -168,9 +263,19 @@ def businfo(station):
 "data": info
 }
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+# 让js文件中可以使用url_for方法
+results = []
+# chars = 'ABCDEFGHIJKLMNOPQRSTUVWSYZ'
+results.append({'name': '1 最大N个数与最小N个数的和', 'flag': 'true', 'url': 'http://127.0.0.1:5000/questionanswer'})
+"""
+results.append({'name': 'vue.js+flask+element-ui简易Demo', 'flag': 'true'})
+results.append({'name': '代码请戳github', 'flag': 'true', 'url': 'https://github.com/qianbin01/Vue-flask'})
+for i in range(3):
+results.append({'name': random.choice(chars), 'index': str(uuid1())})
+"""
+# @app.route('/')
+# def index():
+#    return render_template('index.html')
 
 
 @app.route('/ping')

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>code add</title>
+<meta name="description" content="Source code generated using layoutit.com">
+<meta name="author" content="LayoutIt!">
+<link href="../static/code-add-src/css/bootstrap.min.css" rel="stylesheet">
+<link href="./static/code-add-src/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12">
+<div class="btn-group btn-group-lg" role="group" style='text-align: left;position:fixed; z-index:999; top:0;'>
+
+<button class="btn btn-primary-outline radius" style="text-align: left;background-color:transparent;border-stype:none;" type="button">
+<a href="/" ><h6><font color="light"  > 首页</font></h6></a>
+</button>
+<button class="btn btn-link" type="button">
+<a href="/code-list" ><h6><font color="light"> 问答</font></h6></a>
+</button>
+<button class="btn btn-link" type="button">
+<a href="/blogs" ><h6><font color="light"> 文章 </font></h6></a>
+</button>
+</div>
+
+<div class="">
+</br>
+</br>
+</div>
+
+<div class="progress">
+<div class="progress-bar w-100 progress-bar-striped progress-bar-animated" style="background-color:transparent;border-stype:none;">
+</div>
+</div>
+
+<div class="">
+</div>
+<form role="form" action="/code-add" method="post">
+<h5>
+新建题目(题目/样例/思路/代码/结果) &nbsp;&nbsp;&nbsp;<button type="submit" value="提交" class="btn btn-primary"  id="content_add_up">提交</button>
+</h5>
+
+
+<div class="form-group" style="display:inline-block;width:200px;">
+<label for="name">级别：</label>
+<select class="form-control" id="select_level" name="select_level" >
+<option>简单</option>
+<option>中等</option>
+<option>困难</option>
+</select>
+</div>
+<div class="form-group" style="display:inline-block;width:200px;">
+<label for="name">题目类型：</label>
+<select class="form-control" id="select_category" name="select_category" >
+<option>查找</option>
+<option>排序</option>
+<option>回溯</option>
+<option>贪心</option>
+</select>
+</div>
+
+<label class="form-inline"> 题目：<textarea id="content_question" name="content_question" class="form-control" style="width: 100%; height: 40px; margin-top:1px;" ></textarea></label>
+<label class="form-inline"> 描述：<textarea id="content_example" name="content_example" class="form-control" style="width: 100%; height: 60px; margin-top:1px;" ></textarea></label>
+<label class="form-inline"> 思路：<textarea id="content_think" name="content_think" class="form-control" style="width: 100%; height: 60px; margin-top:1px;" ></textarea></label>
+<label class="form-inline"> 代码：<textarea id="content_code" name="content_code" class="form-control" style="width: 100%; height: 120px; margin-top:1px;" ></textarea></label>
+<label class="form-inline"> 结果：<textarea id="content_result" name="content_result" class="form-control" style="width: 100%; height: 60px; margin-top:1px;" ></textarea></label>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+  <script src="./static/code-add-src/js/jquery.min.js"></script>
+  <script src="./static/code-add-src/js/bootstrap.min.js"></script>
+  <script src="./static/code-add-src/js/scripts.js"></script>
+  </body>
+</html>
