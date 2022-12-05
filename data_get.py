@@ -91,11 +91,11 @@ def selectCodeDetaiWithlParam(user,db,password,id):
 def insertDataToDB(user,db,password,l,ca,q,e,t,co,r):
     levelStr = l
     categoryStr = ca
-    questionStr = str(q.replace("\n","</br>").replace(" ","&nbsp;"))
-    exampleStr = str(e.replace("\n","</br>").replace(" ","&nbsp;"))
-    thinkStr = str(t.replace("\n","</br>").replace(" ","&nbsp;"))
-    codeStr = str(co.replace("\n","</br>").replace(" ","&nbsp;"))
-    resultStr = str(r.replace("\n","</br>").replace(" ","&nbsp;"))
+    questionStr = str(q.replace("\n","</br>").replace(" ","&nbsp;").replace("\'","\""))
+    exampleStr = str(e.replace("\n","</br>").replace(" ","&nbsp;").replace("\'","\""))
+    thinkStr = str(t.replace("\n","</br>").replace(" ","&nbsp;").replace("\'","\""))
+    codeStr = str(co.replace("\n","</br>").replace(" ","&nbsp;").replace("\'","\""))
+    resultStr = str(r.replace("\n","</br>").replace(" ","&nbsp;").replace("\'","\""))
     # 通过con_db函数对应的user-db-password来ping连接mysql数据库
     # 生成对应游标进行数据查询准备
     connect_res = con_db(user,db,password)
@@ -103,7 +103,7 @@ def insertDataToDB(user,db,password,l,ca,q,e,t,co,r):
     cur = connect_res.cursor()
     # 通过游标执行sql语句操作，获取相应物理表表头
     sql_insert = "insert into question_answer_code(level,category,question,think,code,example,result) values (" "'"+levelStr+"'," + "'"+categoryStr +"'," + "'"+questionStr+"'," +  "'"+thinkStr+"',"+"'"+codeStr+"',"+"'"+exampleStr+"',"+"'"+resultStr+"'"+")"
-    print(sql_insert)
+    print(":::sql_insert:::",sql_insert,":::sql_insert:::")
     try:
         cur.execute(sql_insert)
         connect_res.commit() # 提交到数据库执行

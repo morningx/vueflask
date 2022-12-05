@@ -52,6 +52,7 @@ def wordcloud():
     # print(hist) {'回溯': 4, '排序': 1, '查找': 4, '贪心': 4}
     return render_template("index-part-page/wordcloud.html")
 
+
 @app.route('/blogs')
 def blogs_main():
     res = "test blogs-main page message!"
@@ -67,6 +68,11 @@ def pandas_numpy():
         config = style_config)
     # print("pandas numpy jupyter html re-start okk!")
     return render_template("/blogs/pdnp.html")
+
+@app.route('/blogs/pandas-numpy')
+def pandas_Numpy():
+    # res = "test pandasNumpy page message!"
+    return render_template("/jupyter-html/pandas-numpy.html")
 
 @app.route("/stackbarpercent")
 def stackbarpercent():
@@ -108,7 +114,7 @@ def code_add_new():
         think=request.form.get('content_think')
         code=request.form.get('content_code')
         result=request.form.get('content_result')
-        print ("前端取数为：",question,example,think,code,result)
+        # print ("前端取数为：",question,example,think,code,result)
         import data_get
         global user,password,db_name
         data_get.insertDataToDB(user=user,db=db_name,password=password,q=question,e=example,t=think,c=code,r=result)
@@ -125,8 +131,8 @@ def code_add():
         think=request.form.get('content_think')
         code=request.form.get('content_code')
         result=request.form.get('content_result')
-        print ("前端取下拉框数据为：",level,category)
-        print ("前端取数为：",question,example,think,code,result)
+        # print ("前端取下拉框数据为：",level,category)
+        # print ("前端取数为：",question,example,think,code,result)
         import data_get
         global user,password,db_name
         data_get.insertDataToDB(user=user,db=db_name,password=password,

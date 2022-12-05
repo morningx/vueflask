@@ -6,7 +6,7 @@ import random
 # import numpy as np
 
 
-# 随机给4个整数取3个值，3个值都不相等
+# 202211-随机给4个整数取3个值，3个值都不相等
 # 1、python自带排列组合模块，itertools.permutations(list,num)；
 # 2、三重for循环，时间复杂度O(N的三次方)方式遍历出值后，再进行list的百十个位乘以系数；
 def randFourGetDistructThree(strvalue):
@@ -29,6 +29,7 @@ def randFourGetDistructThree(strvalue):
     print(reslis)
     return reslis
 
+# 202211-页面获取数据写入数据库函数实验版
 def maxNumMinNumGetSum(numsN,listnums,maxminN):
     questionStr = """求最大N个数与最小N个数的和。"""
     thinkingstr = """1 初始化：input-strip-int-length数量，input-strip-split空格-map-int-list-inlis数字列表，input-strip-int-n取个数；判断去重复后的inlis是否大于等于【N*2】，否则return-1；
@@ -84,8 +85,30 @@ if __name__ == "__main__":
         value = "nice,return max N and min N value is :" + str(sum(res))
         return [questionStr,thinkingstr,exampleStr,codeStr,othersStr,value]
 
+# 202212-随机猜测数字直到准确，记录其猜测次数及时长
+def gaussNum():
+    import random,time
+    startValue = random.randint(1,100)
+    startFlag = input("是否开始猜测数字yORn： ")
+    if startFlag == "y":
+        startTime = time.time()
+        while True:
+            gaussV = int(input("现在猜："))
+            if gaussV > startValue:
+                print("猜大了：")
+            elif gaussV < startValue:
+                print("猜小了")
+            else:
+                print("猜对了，值为：{0}".format(startValue))
+                break
+        endTime = time.time()
+        start_end_time = endTime - startTime
+        print("开始时间为：{0},结束时间为：{1}，时长为：{2}".format(startTime,endTime,start_end_time))
+
 if __name__ == "__main__":
-    print("start: \n ")
+
+    # 202212-随机猜测数字直到准确，记录其猜测次数及时长
+    gaussNum()
 
     """
     # randFourGetDistructThree函数使用，输入4个字符串数字，取3个不同数字构建
