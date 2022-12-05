@@ -13,7 +13,7 @@ wordcloud.html：采用结巴分词库对数据库表代码说明内容进行提
 
 ### 小工具<br>
 1 豆瓣镜像：<br>
-pip install tensorflow -i "https://pypi.doubanio.com/simple/"<br>
+pip install pandas -i "https://pypi.doubanio.com/simple/" <br>
 
 ### 构建思路<br>
 

@@ -7,11 +7,11 @@
 
 </head>
 <body>
-    <div id="53b33009bad04e0f81abdd8132c47787" class="chart-container" style="width:900px; height:500px;"></div>
+    <div id="e215917f33494c74835648994e8a4a35" class="chart-container" style="width:900px; height:500px;"></div>
     <script>
-        var chart_53b33009bad04e0f81abdd8132c47787 = echarts.init(
-            document.getElementById('53b33009bad04e0f81abdd8132c47787'), 'light', {renderer: 'canvas'});
-        var option_53b33009bad04e0f81abdd8132c47787 = {
+        var chart_e215917f33494c74835648994e8a4a35 = echarts.init(
+            document.getElementById('e215917f33494c74835648994e8a4a35'), 'light', {renderer: 'canvas'});
+        var option_e215917f33494c74835648994e8a4a35 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -23,20 +23,28 @@
     "series": [
         {
             "type": "bar",
-            "name": "\u67e5\u627e",
+            "name": "product1",
             "legendHoverLink": true,
             "data": [
                 {
-                    "value": 1,
-                    "percent": 1.0000
+                    "value": 12,
+                    "percent": 0.8
                 },
                 {
-                    "value": 0,
-                    "percent": 0
+                    "value": 23,
+                    "percent": 0.5227272727272727
                 },
                 {
-                    "value": 0,
-                    "percent": 0
+                    "value": 33,
+                    "percent": 0.868421052631579
+                },
+                {
+                    "value": 3,
+                    "percent": 0.05454545454545454
+                },
+                {
+                    "value": 33,
+                    "percent": 0.4342105263157895
                 }
             ],
             "showBackground": false,
@@ -53,7 +61,7 @@
             "z": 2,
             "label": {
                 "show": true,
-                "position": "left",
+                "position": "right",
                 "margin": 8,
                 "formatter": function(x){return Number(x.data.percent * 100).toFixed() + '%';}
             },
@@ -66,20 +74,28 @@
         },
         {
             "type": "bar",
-            "name": "\u6392\u5e8f",
+            "name": "product2",
             "legendHoverLink": true,
             "data": [
                 {
-                    "value": 0,
-                    "percent": 0
+                    "value": 3,
+                    "percent": 0.2
                 },
                 {
-                    "value": 0,
-                    "percent": 0
+                    "value": 21,
+                    "percent": 0.4772727272727273
                 },
                 {
-                    "value": 0,
-                    "percent": 0
+                    "value": 5,
+                    "percent": 0.13157894736842105
+                },
+                {
+                    "value": 52,
+                    "percent": 0.9454545454545454
+                },
+                {
+                    "value": 43,
+                    "percent": 0.5657894736842105
                 }
             ],
             "showBackground": false,
@@ -96,93 +112,7 @@
             "z": 2,
             "label": {
                 "show": true,
-                "position": "left",
-                "margin": 8,
-                "formatter": function(x){return Number(x.data.percent * 100).toFixed() + '%';}
-            },
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
-            }
-        },
-        {
-            "type": "bar",
-            "name": "\u8d2a\u5fc3",
-            "legendHoverLink": true,
-            "data": [
-                {
-                    "value": 0,
-                    "percent": 0
-                },
-                {
-                    "value": 0,
-                    "percent": 0
-                },
-                {
-                    "value": 0,
-                    "percent": 0
-                }
-            ],
-            "showBackground": false,
-            "stack": "stack1",
-            "barMinHeight": 0,
-            "barCategoryGap": "50%",
-            "barGap": "30%",
-            "large": false,
-            "largeThreshold": 400,
-            "seriesLayoutBy": "column",
-            "datasetIndex": 0,
-            "clip": true,
-            "zlevel": 0,
-            "z": 2,
-            "label": {
-                "show": true,
-                "position": "left",
-                "margin": 8,
-                "formatter": function(x){return Number(x.data.percent * 100).toFixed() + '%';}
-            },
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
-            }
-        },
-        {
-            "type": "bar",
-            "name": "\u56de\u6eaf",
-            "legendHoverLink": true,
-            "data": [
-                {
-                    "value": 0,
-                    "percent": 0
-                },
-                {
-                    "value": 0,
-                    "percent": 0
-                },
-                {
-                    "value": 0,
-                    "percent": 0
-                }
-            ],
-            "showBackground": false,
-            "stack": "stack1",
-            "barMinHeight": 0,
-            "barCategoryGap": "50%",
-            "barGap": "30%",
-            "large": false,
-            "largeThreshold": 400,
-            "seriesLayoutBy": "column",
-            "datasetIndex": 0,
-            "clip": true,
-            "zlevel": 0,
-            "z": 2,
-            "label": {
-                "show": true,
-                "position": "left",
+                "position": "right",
                 "margin": 8,
                 "formatter": function(x){return Number(x.data.percent * 100).toFixed() + '%';}
             },
@@ -197,16 +127,12 @@
     "legend": [
         {
             "data": [
-                "\u67e5\u627e",
-                "\u6392\u5e8f",
-                "\u8d2a\u5fc3",
-                "\u56de\u6eaf"
+                "product1",
+                "product2"
             ],
             "selected": {
-                "\u67e5\u627e": true,
-                "\u6392\u5e8f": true,
-                "\u8d2a\u5fc3": true,
-                "\u56de\u6eaf": true
+                "product1": true,
+                "product2": true
             }
         }
     ],
@@ -249,7 +175,11 @@
                 }
             },
             "data": [
-                "\u7b80\u5355"
+                1,
+                2,
+                3,
+                4,
+                5
             ]
         }
     ],
@@ -277,7 +207,7 @@
         }
     ]
 };
-        chart_53b33009bad04e0f81abdd8132c47787.setOption(option_53b33009bad04e0f81abdd8132c47787);
+        chart_e215917f33494c74835648994e8a4a35.setOption(option_e215917f33494c74835648994e8a4a35);
     </script>
 </body>
 </html>

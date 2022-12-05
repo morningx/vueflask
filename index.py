@@ -12,8 +12,8 @@ from flask_cors import CORS
 import urllib.request
 
 app = Flask(__name__)
-app.debug = True
-app.config['DEBUG']=True
+app.debug = False
+app.config['DEBUG']=False
 jsglue = JSGlue()
 jsglue.init_app(app)
 #解决跨域问题 CORS(app, resources=r’/*’) 是解决跨域问题的
@@ -39,7 +39,6 @@ def index():
 
 @app.route('/wordcloud', methods=["GET"])
 def wordcloud():
-
     # import ml
     # resml = ml.jieba_example()
     # print("resml",resml)
@@ -56,7 +55,18 @@ def wordcloud():
 @app.route('/blogs')
 def blogs_main():
     res = "test blogs-main page message!"
-    return render_template("/blogs-content/blogs.html", result = res)
+    return render_template("/blogs/blogs.html", result = res)
+
+@app.route('/blogs/pdnp')
+def pandas_numpy():
+    import JupyterToHtml
+    from JupyterToHtml import style_config
+    JupyterToHtml.jupyterHtmlGet(
+        file = "/Users/hellox/Documents/Code/Vue-flask-master/jupyter/pandas_numpy.ipynb",
+        target= "/Users/hellox/Documents/Code/Vue-flask-master/templates/jupyter-html/pandas-numpy",
+        config = style_config)
+    # print("pandas numpy jupyter html re-start okk!")
+    return render_template("/blogs/pdnp.html")
 
 @app.route("/stackbarpercent")
 def stackbarpercent():

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>链家长沙新房分析</title>
+
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+<script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/china.js"></script>
+
+</head>
+<body>
+
+<!--长沙房产面积销售柱状图绘制方法-->
+<div class="panel panel-primary" style="width: 100%;height: 400px">
+<div class="panel-heading">
+<h3 class="panel-title">问答题型分布图</h3>
+</div>
+<div class="panel-body">
+<div id="HistogramChart1" style="width:100%; height:400px"></div>
+</div>
+</div>
+
+<!--长沙房产面积销售柱状图绘制方法-->
+<script type="text/javascript" charset="UTF-8">
+var kv = new Array();
+var keys = new Array();
+var values = new Array();
+kv = {{ Types | safe }}
+
+for(var logkey in kv){
+    keys.push(logkey);
+    values.push(kv[logkey]);
+}
+var display = function() {
+    var echo = echarts.init(document.getElementById("HistogramChart1"));
+    var option = {
+        label: {
+            show: true, //开启显示
+    position: 'top', //在上方显示
+    textStyle: { //数值样式
+        color: 'aqua',
+        fontSize: 15
+    }
+},
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+        type: 'shadow'
+    }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        data: keys,
+        axisLabel:{
+        interval:0,//横轴信息全部显示
+        rotate:30,//-30度角倾斜显示
+    }
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: values,
+        type: 'bar'
+    }]
+};
+    echo.setOption(option,true);
+};
+display();
+</script>
+
+</body>

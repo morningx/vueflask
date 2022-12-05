@@ -1,0 +1,369 @@
+
+    <!DOCTYPE html>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <head><style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #49483e }
+.highlight { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .esc { color: #f8f8f2 } /* Escape */
+.highlight .g { color: #f8f8f2 } /* Generic */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .x { color: #f8f8f2 } /* Other */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
+.highlight .ge { color: #f8f8f2; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #f8f8f2 } /* Generic.Error */
+.highlight .gh { color: #f8f8f2 } /* Generic.Heading */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
+.highlight .go { color: #66d9ef } /* Generic.Output */
+.highlight .gp { color: #f92672; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { color: #f8f8f2; font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .gt { color: #f8f8f2 } /* Generic.Traceback */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .pm { color: #f8f8f2 } /* Punctuation.Marker */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+body {-webkit-print-color-adjust: exact;width: 100%;}
+.highlight {font-size:10pt; padding-left: 10px; margin: 10px;border: 5px solid #000;border-radius: 5px;}
+pre {font-family: monaco; margin:5px; display:block;line-height: 2;}
+table {margin-left:10px; border:2px; border-collapse:collapse;}
+table tbody tr {background-color:#fff; font-size:10pt; color: #000; font-family:arial;}
+table tbody tr:nth-child(even) {background-color:#eee;}
+thead {background-color:#ccc; font-size:10pt; color: #000; font-family:arial;}
+table tr th {font-weight:bold;padding:5px 15px 5px 15px; border:2px;}
+table tr td {padding:5px 15px 5px 15px;text-align: right; border:2px;}
+.tebleContainer {overflow-x: auto; overflow-y: auto;}
+.plaintext {white-space: pre-wrap;word-break: break-word;font-size:9pt; font-family:monaco; padding-left:20px;color:#000;}
+.image {margin-left:20px;text-align:left;}
+.markdown{font-family:"Microsoft YaHei"}
+.markdown pre{white-space: pre-wrap;word-break: break-word;}
+</style></head>
+    <body style="margin: 0px auto;"><div class = "markdown"><h2>pandas_numpy基本函数使用</h2><div><div><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello pandas &amp; numpy 8890-1&quot;</span><span class="p">)</span>
+</pre></div>
+</div><div><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyecharts</span> <span class="kn">import</span> <span class="n">options</span> <span class="k">as</span> <span class="n">opts</span>
+<span class="kn">from</span> <span class="nn">pyecharts.charts</span> <span class="kn">import</span> <span class="n">Bar</span>
+<span class="kn">from</span> <span class="nn">pyecharts.faker</span> <span class="kn">import</span> <span class="n">Faker</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Bar</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">add_xaxis</span><span class="p">(</span><span class="n">Faker</span><span class="o">.</span><span class="n">choose</span><span class="p">())</span>
+<span class="n">c</span><span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span><span class="s2">&quot;商家A&quot;</span><span class="p">,</span> <span class="n">Faker</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">c</span><span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span><span class="s2">&quot;商家B&quot;</span><span class="p">,</span> <span class="n">Faker</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">c</span><span class="o">.</span><span class="n">set_global_opts</span><span class="p">(</span><span class="n">title_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">TitleOpts</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Bar-基本示例&quot;</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;我是副标题&quot;</span><span class="p">))</span>
+<span class="n">c</span><span class="o">.</span><span class="n">render_notebook</span><span class="p">()</span>
+</pre></div>
+</div><div class = "tebleContainer">
+<script>
+    require.config({
+        paths: {
+            'echarts':'https://assets.pyecharts.org/assets/echarts.min'
+        }
+    });
+</script>
+
+        <div id="cf39ce41991748cab3e32a5d5515fcc0" style="width:900px; height:500px;"></div>
+
+<script>
+        require(['echarts'], function(echarts) {
+                var chart_cf39ce41991748cab3e32a5d5515fcc0 = echarts.init(
+                    document.getElementById('cf39ce41991748cab3e32a5d5515fcc0'), 'white', {renderer: 'canvas'});
+                var option_cf39ce41991748cab3e32a5d5515fcc0 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "#c23531",
+        "#2f4554",
+        "#61a0a8",
+        "#d48265",
+        "#749f83",
+        "#ca8622",
+        "#bda29a",
+        "#6e7074",
+        "#546570",
+        "#c4ccd3",
+        "#f05b72",
+        "#ef5b9c",
+        "#f47920",
+        "#905a3d",
+        "#fab27b",
+        "#2a5caa",
+        "#444693",
+        "#726930",
+        "#b2d235",
+        "#6d8346",
+        "#ac6767",
+        "#1d953f",
+        "#6950a1",
+        "#918597"
+    ],
+    "series": [
+        {
+            "type": "bar",
+            "name": "\u5546\u5bb6A",
+            "legendHoverLink": true,
+            "data": [
+                136,
+                92,
+                107,
+                26,
+                42,
+                127,
+                64
+            ],
+            "showBackground": false,
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            }
+        },
+        {
+            "type": "bar",
+            "name": "\u5546\u5bb6B",
+            "legendHoverLink": true,
+            "data": [
+                106,
+                40,
+                103,
+                119,
+                120,
+                25,
+                39
+            ],
+            "showBackground": false,
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u5546\u5bb6A",
+                "\u5546\u5bb6B"
+            ],
+            "selected": {
+                "\u5546\u5bb6A": true,
+                "\u5546\u5bb6B": true
+            },
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "xAxis": [
+        {
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": false,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            },
+            "data": [
+                "\u8349\u8393",
+                "\u8292\u679c",
+                "\u8461\u8404",
+                "\u96ea\u68a8",
+                "\u897f\u74dc",
+                "\u67e0\u6aac",
+                "\u8f66\u5398\u5b50"
+            ]
+        }
+    ],
+    "yAxis": [
+        {
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": false,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            }
+        }
+    ],
+    "title": [
+        {
+            "text": "Bar-\u57fa\u672c\u793a\u4f8b",
+            "subtext": "\u6211\u662f\u526f\u6807\u9898",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+                chart_cf39ce41991748cab3e32a5d5515fcc0.setOption(option_cf39ce41991748cab3e32a5d5515fcc0);
+        });
+    </script>
+</div><div><div class="highlight"><pre><span></span><span class="c1"># # 原文链接：https://blog.csdn.net/m0_50614038/article/details/124713213</span>
+
+<span class="kn">from</span> <span class="nn">pyecharts</span> <span class="kn">import</span> <span class="n">options</span> <span class="k">as</span> <span class="n">opts</span>
+<span class="kn">from</span> <span class="nn">pyecharts.charts</span> <span class="kn">import</span> <span class="n">Bar</span>
+<span class="kn">from</span> <span class="nn">pyecharts.commons.utils</span> <span class="kn">import</span> <span class="n">JsCode</span>
+<span class="kn">from</span> <span class="nn">pyecharts.globals</span> <span class="kn">import</span> <span class="n">ThemeType</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="mi">12</span> <span class="o">/</span> <span class="p">(</span><span class="mi">12</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="o">/</span> <span class="p">(</span><span class="mi">23</span> <span class="o">+</span> <span class="mi">21</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="mi">33</span> <span class="o">/</span> <span class="p">(</span><span class="mi">33</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">52</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="mi">33</span> <span class="o">/</span> <span class="p">(</span><span class="mi">33</span> <span class="o">+</span> <span class="mi">43</span><span class="p">)},</span>
+<span class="p">]</span>
+
+<span class="n">list3</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">12</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="mi">21</span> <span class="o">/</span> <span class="p">(</span><span class="mi">23</span> <span class="o">+</span> <span class="mi">21</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="mi">5</span> <span class="o">/</span> <span class="p">(</span><span class="mi">33</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="mi">52</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">52</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="mi">43</span> <span class="o">/</span> <span class="p">(</span><span class="mi">33</span> <span class="o">+</span> <span class="mi">43</span><span class="p">)},</span>
+<span class="p">]</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">Bar</span><span class="p">(</span><span class="n">init_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">InitOpts</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">ThemeType</span><span class="o">.</span><span class="n">LIGHT</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">add_xaxis</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span><span class="s2">&quot;product1&quot;</span><span class="p">,</span> <span class="n">list2</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="s2">&quot;stack1&quot;</span><span class="p">,</span> <span class="n">category_gap</span><span class="o">=</span><span class="s2">&quot;50%&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span><span class="s2">&quot;product2&quot;</span><span class="p">,</span> <span class="n">list3</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="s2">&quot;stack1&quot;</span><span class="p">,</span> <span class="n">category_gap</span><span class="o">=</span><span class="s2">&quot;50%&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">set_series_opts</span><span class="p">(</span>
+        <span class="n">label_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">LabelOpts</span><span class="p">(</span>
+            <span class="n">position</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
+            <span class="n">formatter</span><span class="o">=</span><span class="n">JsCode</span><span class="p">(</span>
+                <span class="s2">&quot;function(x){return Number(x.data.percent * 100).toFixed() + &#39;%&#39;;}&quot;</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;stack_bar_percent.html&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div><div><div class="highlight"><pre><span></span>
+</pre></div>
+</div></body>    
