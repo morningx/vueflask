@@ -4,6 +4,7 @@
 1.1 支持每篇内容跳转anconda jupyter 页面生成，目前只做到得每次重新flask run才能刷新页面内容；<br>
 1.2 子页面调用jupyter生成html的页面，采用开源方案将jupyter文件代码转换成html代码；<br>
 1.3 需将jupyter.html先路由render_template生成模板后，再结合iframe标签集成jupyter内容进行生成处理；<br>
+1.4 实现tedtalks数据集可视化及pandasnumpy相关函数数据处理；</br>
 
 ### 2022.10~2022.11更新说明：<br>
 1 初始化：flask框架、vue框架构建前后端项目；<br>

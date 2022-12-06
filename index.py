@@ -58,6 +58,21 @@ def blogs_main():
     res = "test blogs-main page message!"
     return render_template("/blogs/blogs.html", result = res)
 
+@app.route('/blogs/tedtalks')
+def tedtalks():
+    import JupyterToHtml
+    from JupyterToHtml import style_config
+    JupyterToHtml.jupyterHtmlGet(
+        file = "/Users/hellox/Documents/Code/Vue-flask-master/jupyter/TedTalks.ipynb",
+        target= "/Users/hellox/Documents/Code/Vue-flask-master/templates/jupyter-html/ted-talks",
+        config = style_config)
+    # print("pandas numpy jupyter html re-start okk!")
+    return render_template("/blogs/tedtalks.html")
+
+@app.route('/blogs/ted-talks')
+def ted_talks():
+    return render_template("/jupyter-html/ted-talks.html")
+
 @app.route('/blogs/pdnp')
 def pandas_numpy():
     import JupyterToHtml
